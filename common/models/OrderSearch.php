@@ -15,13 +15,14 @@ use yii\data\ActiveDataProvider;
 class OrderSearch extends Customer
 {
     public $customer_name = '';
-    public $address = '';
-    public $phone = '';
+    public $customer_address = '';
+    public $customer_phone = '';
+    public $memo = '';
     public function rules()
     {
         // only fields in rules() are searchable
         return [
-            [['customer_name', 'address', 'phone'], 'safe'],
+            [['customer_name', 'customer_address', 'customer_phone', 'memo'], 'string'],
         ];
     }
 
@@ -33,7 +34,7 @@ class OrderSearch extends Customer
 
     public function search($params)
     {
-        $query = Order::find()->joinWith('customer')->orderBy('orders.id DESC');
+        $query = Order::find()->orderBy('orders.id DESC');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -48,9 +49,10 @@ class OrderSearch extends Customer
         }
 
         // adjust the query by adding the filters
-        $query->andFilterWhere(['like', 'customers.name', $this->customer_name])
-            ->andFilterWhere(['like', 'customers.address', $this->address])
-            ->andFilterWhere(['like', 'customers.phone', $this->phone]);
+        $query->andFilterWhere(['like', 'customer_name', $this->customer_name])
+            ->andFilterWhere(['like', 'customer_address', $this->customer_address])
+            ->andFilterWhere(['like', 'memo', $this->memo])
+            ->andFilterWhere(['like', 'customer_phone', $this->customer_phone]);
 
         return $dataProvider;
     }

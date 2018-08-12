@@ -1,5 +1,6 @@
 # yii console command
 /yii
+/console/runtime/
 
 # phpstorm project files
 .idea

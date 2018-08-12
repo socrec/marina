@@ -36,7 +36,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Khách Hàng', 'url' => ['/customer/index']],
+//        ['label' => 'Khách Hàng', 'url' => ['/customer/index']],
         ['label' => 'Đơn Hàng', 'url' => ['/order/index']],
     ];
     if (Yii::$app->user->isGuest) {

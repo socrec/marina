@@ -34,6 +34,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <h2 class="text-center">
             Marina - 0935131841
         </h2>
+        <h5 class="text-center">
+            Địa chỉ: 192 Phan Văn Hân - Phường 17 - Quận Bình Thạnh - HCM
+        </h5>
+        <br>
         <?php
         echo DetailView::widget([
             'model' => $model,
@@ -43,53 +47,25 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format' => 'raw',
                     'value' => str_pad($model->id, 5, '0', STR_PAD_LEFT)
                 ],
-                [
-                    'label' => 'Khách Hàng',
-                    'format' => 'raw',
-                    'value' => $model->customer ? Html::a($model->customer->name, Url::to(['customer/view', 'id' => $model->customer_id]), [
-                        'target' => '_blank'
-                    ]) : ''
-                ],
-                [
-                    'label' => 'SĐT',
-                    'format' => 'raw',
-                    'value' => $model->customer ? $model->customer->phone : ''
-                ],
-                [
-                    'label' => 'Địa Chỉ',
-                    'format' => 'raw',
-                    'value' => $model->customer ? $model->customer->address : ''
-                ],
-                /*[
-                    'label' => 'Phường/Xã',
-                    'format' => 'raw',
-                    'value' =>  $model->customer ? $model->customer->ward : ''
-                ],
-                [
-                    'label' => 'Quận/Huyện',
-                    'format' => 'raw',
-                    'value' =>  $model->customer ? $model->customer->district : ''
-                ],
-                [
-                    'label' => 'Thành Phố',
-                    'format' => 'raw',
-                    'value' =>  $model->customer ? $model->customer->city : ''
-                ],*/
-//                [
-//                    'label' => 'Tiền Hàng',
-//                    'format' => 'raw',
-//                    'value' => '<b>' . number_format($model->total) . 'đ</b>',
-//                ],
-//                [
-//                    'label' => 'Phí Ship',
-//                    'format' => 'raw',
-//                    'value' => '<b>' . number_format($model->shipping_fee) . 'đ</b>',
-//                ],
-//                [
-//                    'label' => 'Ghi Chú',
-//                    'format' => 'raw',
-//                    'value' => nl2br($model->memo)
-//                ],
+                'total',
+                'shipping_fee',
+                'customer_name',
+                'customer_phone',
+                'customer_facebook',
+                'customer_address',
+                'customer_ward',
+                'customer_district',
+                'customer_city',
+            ],
+        ]);
+        ?>
+    </div>
+    <div>
+        <?php
+        echo DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'memo'
             ],
         ]);
         ?>

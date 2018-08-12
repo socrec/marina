@@ -25,12 +25,29 @@ class Order extends ActiveRecord
         return [
 //            [['total', 'shipping_fee'], 'required'],
             [['memo'], 'string'],
-            [['customer_id', 'total', 'shipping_fee'], 'safe']
+            [['total', 'shipping_fee'], 'safe'],
+            [['customer_name', 'customer_phone', 'customer_address', 'customer_ward', 'customer_district', 'customer_city'], 'safe'],
         ];
     }
 
     public function getCustomer()
     {
         return $this->hasOne(Customer::className(), ['id' => 'customer_id']);
+    }
+
+    public function attributeLabels()
+    {
+        return array(
+            'memo' => 'Ghi Chú',
+            'customer_name' => 'Tên Khách Hàng',
+            'customer_phone' => 'Số Điện Thoại',
+            'customer_facebook' => 'Facebook',
+            'customer_address' => 'Địa Chỉ',
+            'customer_ward' => 'Phường',
+            'customer_district' => 'Quận',
+            'customer_city' => 'Thành Phố',
+            'total' => 'Thành Tiền',
+            'shipping_fee' => 'Phí Ship',
+        );
     }
 }

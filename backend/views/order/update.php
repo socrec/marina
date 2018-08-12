@@ -22,38 +22,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'action' => Url::to(['order/update', 'id' => $model->id]),
         'method' => 'POST',
     ]) ?>
-<!--    <div class="panel panel-info">-->
-<!--        <div class="panel-heading"><h4>Chi tiết đơn</h4></div>-->
-<!--        <div class="panel-body">-->
-<!--            <div class="col-md-12">-->
-<!--                --><?//= $form->field($model, 'total')->label('Tiền Hàng') ?>
-<!--                --><?//= $form->field($model, 'shipping_fee')->label('Phí Ship') ?>
-<!--                --><?//= $form->field($model, 'memo')->textarea()->label('Ghi Chú') ?>
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 
     <div class="panel panel-info">
         <div class="panel-heading">
-            <ul class="nav nav-pills" role="tablist">
-                <li role="presentation" class="active"><a href="#old-customer" role="tab" data-toggle="tab">KH đã
-                        tạo</a></li>
-            </ul>
+            <?php echo $this->title ?>
         </div>
         <div class="panel-body">
             <div class="col-md-12">
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="old-customer">
-                        <?= $form->field($model, 'customer_id')->dropdownList([
-                            $model->customer_id => $model->customer->name
-                        ],
-                            [
-                                'prompt' => 'Chọn khách hàng',
-                                'id' => 'customer-load'
-                            ])->label('Khách Hàng') ?>
-                    </div>
-                </div>
+                <?= $form->field($model, 'total') ?>
+                <?= $form->field($model, 'shipping_fee') ?>
+                <?= $form->field($model, 'customer_name') ?>
+                <?= $form->field($model, 'customer_phone') ?>
+                <?= $form->field($model, 'customer_facebook') ?>
+                <?= $form->field($model, 'customer_address') ?>
+                <?= $form->field($model, 'customer_ward') ?>
+                <?= $form->field($model, 'customer_district') ?>
+                <?= $form->field($model, 'customer_city') ?>
+                <?= $form->field($model, 'memo')->textarea() ?>
                 <div class="form-group">
                     <?= Html::submitButton('Cập nhật', ['class' => 'btn btn-primary']) ?>
                 </div>
@@ -62,24 +47,3 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <?php ActiveForm::end() ?>
 </div>
-<script>
-    $(function () {
-        $('#customer-load').select2({
-            ajax: {
-                dataType: 'json',
-                url: "<?= Url::to(['customer/load']) ?>",
-                minimumInputLength: 1,
-                data: function (params) {
-                    return {
-                        term: params.term
-                    }
-                },
-                processResults: function (data, page) {
-                    return {
-                        results: data
-                    };
-                },
-            }
-        });
-    })
-</script>
