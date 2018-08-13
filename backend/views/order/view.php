@@ -47,15 +47,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format' => 'raw',
                     'value' => str_pad($model->id, 5, '0', STR_PAD_LEFT)
                 ],
-                'total',
-                'shipping_fee',
+//                'total',
+//                'shipping_fee',
                 'customer_name',
                 'customer_phone',
                 'customer_facebook',
                 'customer_address',
-                'customer_ward',
-                'customer_district',
-                'customer_city',
+//                'customer_ward',
+//                'customer_district',
+//                'customer_city',
             ],
         ]);
         ?>

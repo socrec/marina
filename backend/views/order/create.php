@@ -30,15 +30,15 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-md-12">
                 <!-- Tab panes -->
                 <div>
-                    <?= $form->field($model, 'total') ?>
-                    <?= $form->field($model, 'shipping_fee') ?>
+<!--                    --><?//= $form->field($model, 'total') ?>
+<!--                    --><?//= $form->field($model, 'shipping_fee') ?>
                     <?= $form->field($model, 'customer_name') ?>
                     <?= $form->field($model, 'customer_phone') ?>
                     <?= $form->field($model, 'customer_facebook') ?>
                     <?= $form->field($model, 'customer_address') ?>
-                    <?= $form->field($model, 'customer_ward') ?>
-                    <?= $form->field($model, 'customer_district') ?>
-                    <?= $form->field($model, 'customer_city') ?>
+<!--                    --><?//= $form->field($model, 'customer_ward') ?>
+<!--                    --><?//= $form->field($model, 'customer_district') ?>
+<!--                    --><?//= $form->field($model, 'customer_city') ?>
                     <?= $form->field($model, 'memo')->textarea() ?>
                 </div>
                 <div class="form-group">

@@ -29,15 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="panel-body">
             <div class="col-md-12">
-                <?= $form->field($model, 'total') ?>
-                <?= $form->field($model, 'shipping_fee') ?>
+<!--                --><?//= $form->field($model, 'total') ?>
+<!--                --><?//= $form->field($model, 'shipping_fee') ?>
                 <?= $form->field($model, 'customer_name') ?>
                 <?= $form->field($model, 'customer_phone') ?>
                 <?= $form->field($model, 'customer_facebook') ?>
                 <?= $form->field($model, 'customer_address') ?>
-                <?= $form->field($model, 'customer_ward') ?>
-                <?= $form->field($model, 'customer_district') ?>
-                <?= $form->field($model, 'customer_city') ?>
+<!--                --><?//= $form->field($model, 'customer_ward') ?>
+<!--                --><?//= $form->field($model, 'customer_district') ?>
+<!--                --><?//= $form->field($model, 'customer_city') ?>
                 <?= $form->field($model, 'memo')->textarea() ?>
                 <div class="form-group">
                     <?= Html::submitButton('Cập nhật', ['class' => 'btn btn-primary']) ?>
